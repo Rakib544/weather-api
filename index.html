@@ -41,7 +41,6 @@
             fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchBar()}&appid=03a80e5abb3af1cf7b6bfe3d1a8909cf`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 showDescription(data);
                 showTemperature(data)
                 showCityName(data)  
