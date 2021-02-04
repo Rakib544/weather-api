@@ -46,8 +46,9 @@
                 showTemperature(data)
                 showCityName(data)  
                 showIcon(data);  
-                document.getElementById('search-bar').value = ""   
+                document.getElementById('search-bar').value = ""; //make the search bar value empty
             })
+            //handling error
             .catch(error => {
                 document.getElementById('search-bar').value = "";
                 document.getElementById('description').innerText = "";
@@ -58,28 +59,33 @@
         }
 
 
+        // show weather type
         const showDescription = (data) => {
             document.getElementById('description').innerText = data.weather[0].main;
         }
 
 
+        //show temperature
         const showTemperature = (data) => {
             const temperatureInCelsius = (data.main.temp - 273).toFixed(2);
             document.getElementById('temperature').innerHTML = `<span>${temperatureInCelsius}</span>&deg;C`;
         }
 
 
+        //show city name
         const showCityName = (data) => {
             document.getElementById('city-name').innerText = data.name;
         }
 
 
+        //handle search bar
         const searchBar = () => {
             const searchValue = document.getElementById('search-bar').value;
             return searchValue;
         }
 
 
+        //show icon
         const showIcon = (data) => {
             const imgIcon = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
             document.getElementById('icon').setAttribute('src', imgIcon);
